@@ -46,7 +46,7 @@ STEP 3: Use MySQL workbench to import data from dump folder, sql file.
 
 Project Preview.
 ---------------------------------------------------------------------
-Login page for Admin:
+:point_right: Login page for Admin:
 ![ Login page](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/login.PNG)
 
 ------DashBoard Overview:
