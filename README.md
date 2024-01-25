@@ -83,7 +83,7 @@ Login page for Admin:
 ![ purchase](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/purchase2.PNG)
 
 **>"Suggestions and project Improvements are always Invited!"**
--[] Thanks a lot,
+- Thanks a lot,
   Project Leader
   Fatema Tuz Zohora.
 [Fatema Tuz Zohora](https://github.com/fatemazohor)
