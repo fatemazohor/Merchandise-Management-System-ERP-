@@ -30,14 +30,14 @@ For a comprehensive picture of the business process, the order, sales, and reven
 - JSP
 - MySQL
 
-==== Software And Tools Required ======
+**==== Software And Tools Required ======**
 - :  MySQL
 - :  IntelliJ IDEA
 - :  Spring Initializer
 - :  Java JDK 17+
 
 
-================= Dummy Database Initialization USING QUERY =================  
+**================= Dummy Database Initialization USING QUERY =================**  
 STEP 1: Open MySQL Command Prompt or MySQL Workbench
 
 STEP 2: Login to the administrator user as : mysql -u <username> -p (Enter Password if asked)
