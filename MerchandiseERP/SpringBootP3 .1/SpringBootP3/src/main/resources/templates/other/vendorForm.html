@@ -1,0 +1,46 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/vendor/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/vendor/save}" th:object="${vendor}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+            <div class="mb-3">
+                <label for="Company name" class="form-label">Company Name</label>
+                <input type="text" class="form-control" id="Company name" th:field="*{company}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="contact name" class="form-label">Contact Person Name</label>
+                <input type="text" class="form-control" id="contact name" th:field="*{contactPerson}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="cell" class="form-label">Cell</label>
+                <input type="text" class="form-control" id="cell" th:field="*{cell}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" th:field="*{email}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" th:field="*{address}">
+
+            </div>
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

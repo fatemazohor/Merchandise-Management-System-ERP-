@@ -1,0 +1,27 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/fabric/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/fabric/save}" th:object="${fabric}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+            <div class="mb-3">
+                <label for="Category name" class="form-label">Fabric name</label>
+                <input type="text" class="form-control" id="Category name" th:field="*{name}">
+
+            </div>
+            <div class="mb-3">
+                <label for="Description name" class="form-label">Description</label>
+                <input type="text" class="form-control" id="Description name" th:field="*{description}">
+
+            </div>
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

@@ -1,0 +1,32 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+<!--    <p class="pb-0">Best seller of the month cate</p>-->
+    <a href=/warehouse/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/warehouse/save}" th:object="${warehouse}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+            <div class="mb-3">
+                <label for="warehouse name" class="form-label">warehouse name</label>
+                <input type="text" class="form-control" id="warehouse name" th:field="*{name}">
+
+            </div>
+            <div class="mb-3">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" th:field="*{city}">
+
+            </div>
+            <div class="mb-3">
+                <label for="contact" class="form-label">Contact</label>
+                <input type="text" class="form-control" id="contact" th:field="*{contact}">
+
+            </div>
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

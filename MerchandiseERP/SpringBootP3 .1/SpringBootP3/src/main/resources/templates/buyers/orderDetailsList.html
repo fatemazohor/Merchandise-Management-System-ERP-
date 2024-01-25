@@ -1,0 +1,59 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/order_details/addform class="btn btn-sm btn-primary">Create New</a>
+
+    <div class="py-2">
+        <table class="table table-striped text-center">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Buyer</th>
+                <th scope="col">Style</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">Delivery Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Time & Action</th>
+                <th scope="col">Action</th>
+                <th scope="col">Print</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="si:${orderDetailsList}">
+                <td th:text="${si.id}"></td>
+                <td th:text="${si.buyersId.organization}"></td>
+                <td th:text="${si.styleId.code}"></td>
+                <td th:text="${si.oderDate}"></td>
+                <td th:text="${si.deliveryDate}"></td>
+                <!--                <td th:text="${si.orStatusId.name}">-->
+                <th:block th:switch="${si.orStatusId.id}">
+                    <td th:text="${si.orStatusId.name}" th:case="1" class="badge bg-warning text-dark"></td>
+                    <td th:text="${si.orStatusId.name}" th:case="2" class="badge bg-primary text-dark"></td>
+                    <td th:text="${si.orStatusId.name}" th:case="3" class="badge bg-info text-dark"></td>
+                    <td th:text="${si.orStatusId.name}" th:case="4" class="badge bg-success text-dark "></td>
+                </th:block>
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-info text-white shadow-sm" th:target="_blank"
+                       th:href="@{'/time_action/'+${si.id}}">TNA</a>
+
+
+                </td>
+                <td>
+                    <a class="btn btn-warning" th:href="@{'/order_details_edit/'+${si.id}}">Update</a>
+                </td>
+                <td>
+
+                    <a class="btn btn-outline-info" th:target="_blank" th:href="@{'/receipt/'+${si.id}}">Receipt</a>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

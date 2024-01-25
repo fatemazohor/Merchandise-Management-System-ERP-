@@ -1,0 +1,108 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/raw_material/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/raw_material/save}" th:object="${rawMaterial}"
+        enctype="multipart/form-data">
+            <input type="hidden" class="form-control" th:field="*{id}">
+
+
+
+
+            <div class="mb-3">
+                <label for="styleCode" class="form-label">Style Code</label>
+                <select name="styleCode" id="styleCode" class="form-control" th:field="*{styleId}">
+                    <option  th:each="style:${styleList}" th:text="${style.code}" th:value="${style.id}">Select one</option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="rawMaterial" class="form-label">Raw Material Category</label>
+                <select name="styleCode" id="rawMaterial" class="form-control" th:field="*{rawMaterialCatId}">
+                    <option  th:each="raw:${rawMaterialCategoriesList}" th:text="${raw.name}" th:value="${raw.id}">Select one</option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="Name" th:field="*{name}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" class="form-control" id="description" th:field="*{description}">
+
+            </div>
+
+            <!--select Unit of measurement-->
+            <div class="mb-3">
+                <label for="uom" class="form-label">Unit of Measurement</label>
+                <select name="uom" id="uom" class="form-control" th:field="*{uomId}">
+                    <option  th:each="uom:${uomList}" th:text="${uom.name}" th:value="${uom.id}">Select one</option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="unitPrice" class="form-label">Cost per Unit</label>
+                <input type="text" class="form-control" id="unitPrice" th:field="*{unitPrice}">
+
+            </div>
+
+            <!--            vendor company select-->
+
+            <div class="mb-3">
+                <label for="vendor" class="form-label">Vendor Name</label>
+                <select name="vendor" id="vendor" class="form-control" th:field="*{vendorId}">
+                    <option  th:each="vendor:${vendorList}" th:text="${vendor.company}" th:value="${vendor.id}">Select one</option>
+
+                </select>
+
+            </div>
+<!--            raw material image-->
+            <div class="mb-3">
+                <label for="attachment" class="form-label">Attachment</label>
+                <input type="file" class="form-control" id="attachment" th:field="*{attachment}"
+                       placeholder="raw image" accept="image/*" onchange="previewImage()">
+                <!--                preview image-->
+                <img th:if="${rawMaterial.attachment ne null}"
+                     th:src="@{/assets/image/material_att/{filename}(filename=${rawMaterial.attachment}) }"
+                     style="max-width: 100%"><br>
+                <img id="imagePreview" src="#" alt="sketch" style="display:none; width: 100px;">
+
+            </div>
+
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<script>
+    function previewImage(){
+        var input=document.querySelector('input[type="file"]');
+        var preview=document.getElementById("imagePreview");
+        if (input.files && input.files[0]){
+            var reader=new FileReader();
+            reader.onload=function (e){
+                preview.src=e.target.result;
+                preview.style.display='block';
+            }
+            reader.readAsDataURL(input.files[0])
+        }else{
+            preview.src='#';
+            preview.style.display='none';
+        }
+    }
+</script>
+<div th:insert="footer.html"></div>

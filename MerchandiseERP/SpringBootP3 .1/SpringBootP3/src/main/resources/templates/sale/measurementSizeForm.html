@@ -1,0 +1,94 @@
+<div th:insert="~{header.html}"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/measurement_size/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/measurement_size/save}" th:object="${measurementSize}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+
+
+
+
+            <div class="mb-3">
+                <label for="styleCode" class="form-label">Style Code</label>
+                <select name="styleCode" id="styleCode" class="form-control" th:field="*{styleId}">
+                    <option  th:each="style:${styleList}" th:text="${style.code}" th:value="${style.id}">Select one</option>
+
+                </select>
+
+            </div>
+<!--            jquery-->
+            <div class="mb-3">
+                <label for="measurementid" class="form-label">Measurement Id</label>
+                <select name="styleCode" id="measurementid" class="form-control" th:field="*{measurementId}">
+<!--                    <option th:value="null">-Select-</option>-->
+                    <option  th:each="me:${styleMeasurement}" th:text="${me.name}" th:value="${me.id}">Select one</option>
+
+                </select>
+
+            </div>
+<!--            //database-->
+<!--            <div class="mb-3">-->
+<!--                <label for="measurementid" class="form-label">Measurement Id</label>-->
+<!--                <select name="styleCode" id="measurementid" class="form-control" th:field="*{measurementId}">-->
+<!--                    <option  th:each="me:${measurementList}" th:text="${me.name}" th:value="${me.id}">Select one</option>-->
+
+<!--                </select>-->
+
+<!--            </div>-->
+            <div class="mb-3">
+                <label for="styleSizeid" class="form-label">Style Size</label>
+                <select name="styleCode" id="styleSizeid" class="form-control" th:field="*{sizeId}">
+                    <option  th:each="size:${sizeList}" th:text="${size.name}" th:value="${size.id}">Select one</option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="codeName" class="form-label">Measurement</label>
+                <input type="text" class="form-control" id="codeName" th:field="*{measurement}">
+
+            </div>
+
+<!--            <div class="mb-3">-->
+<!--                <label for="name" class="form-label">Name</label>-->
+<!--                <input type="text" class="form-control" id="name" th:field="*{name}">-->
+
+<!--            </div>-->
+
+<!--            <div class="mb-3">-->
+<!--                <label for="tolerance" class="form-label">Tolerance</label>-->
+<!--                <input type="text" class="form-control" id="tolerance" th:field="*{tolerance}">-->
+
+<!--            </div>-->
+
+
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<!--<th:block th:fragement="script">-->
+<!--    <script language="JavaScript" src="../assets/js/ddlist.js">-->
+<!--        $('document').ready(function(){-->
+<!--            $('#styleCode').on('change',function (){-->
+<!--                $('#measurementid').empty().append('<option value="null">-Select-</option>');-->
+<!--                var styleId=$(this).val();-->
+<!--                var href="http://localhost:8089/style/"+styleId-->
+<!--                $.get(href,function (style,status){-->
+<!--                    var styleMeasurement = style.styleMeasurement;-->
+<!--                    for(var i=0; i<= styleMeasurement.length-1; i++){-->
+<!--                        $('#measurementid').append('<option value=" '+styleMeasurement[i].id+' ">'+styleMeasurement[i].name+'</option>');-->
+<!--                    }-->
+<!--                })-->
+<!--            })-->
+<!--        })-->
+
+<!--    </script>-->
+<!--</th:block>-->
+<div th:insert="~{footer.html}"></div>

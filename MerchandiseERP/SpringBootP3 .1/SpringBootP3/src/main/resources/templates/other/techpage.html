@@ -1,0 +1,311 @@
+<div th:insert="~{header.html}"></div>
+<div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-light">
+                    <div class="w-100 d-flex justify-content-between align-items-end">
+                        <h4 class="color-primary">Tech Pack Details</h4>
+                        <!--            <a href="http://asia.intels.co/projects/laravel/stripe/public/styles" class="btn btn-lg btn-primary rounded">Manage Style</a>-->
+                    </div>
+                </div>
+                <div class="card-body" id="printableArea">
+                    <h4 class="text-center text-uppercase"
+                    th:text="'Tech Pack #'+${styleData.id}">Tech Pack #1</h4>
+<!--                    <form th:object="${styleData}">-->
+                    <div class="row">
+
+                        <div class="col-4 border">
+                            <p class="mb-0">Style Code:</p>
+                            <h6 class="text-dark" th:text="${styleData.code}">ST123
+<!--                            <input type="text" th:field="*{code}" readonly>-->
+                            </h6>
+                        </div>
+                        <div class="col-4 border">
+                            <p class="mb-0">Style Category:</p>
+                            <h6 class="text-dark" th:text="${styleData.categoriesId.name}">Shirt</h6>
+                        </div>
+                        <div class="col-4 border">
+                            <p class="mb-0">Style Details:</p>
+                            <h6 class="text-dark" th:text="${styleData.description}">Short sleeve shirt</h6>
+                        </div>
+
+                    </div>
+<!--                    </form>-->
+                    <div class="row">
+                        <div class="col-md-12 p-0">
+                            <div class="card rounded-0 shadow-none border h-100">
+                                <div class="px-3 py-1 bg-light">
+                                    <h5 class="pt-2">Fabrication</h5>
+                                </div>
+                                <div class="px-3 pt-2">
+                                    <table class="table">
+                                        <tbody>
+                                        <tr th:each="raw:${rawMaterialList}">
+                                            <td>
+                                                <strong th:text="${raw.rawMaterialCatId.name}+': '+${raw.name}">Fabric: Blue mosaic pattern</strong>
+                                                <br>
+                                                <p th:text="${raw.description}"></p>
+                                            </td>
+                                            <td>
+
+                                                <img height="80px"
+                                                     th:src="@{${'/raw_material/display?id=' + raw.id} }">
+                                            </td>
+
+                                        </tr>
+<!--                                        <tr> demo data static-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <strong>Fabric: Blue mosaic pattern</strong>-->
+<!--                                                <br>-->
+<!--                                                65% Polister, 35% Cotton-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                &lt;!&ndash;                        <img alt="image" class="shadow p-1 rounded border bg-secondary" src="http://asia.intels.co/projects/laravel/stripe/public/img/fabrics/1.png" width="50">&ndash;&gt;-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <strong>Fabric: Solid green</strong>-->
+<!--                                                <br>-->
+<!--                                                65% Polister, 35% Cotton-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                &lt;!&ndash;                        <img alt="image" class="shadow p-1 rounded border bg-secondary" src="http://asia.intels.co/projects/laravel/stripe/public/img/fabrics/2.png" width="50">&ndash;&gt;-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+<!--                        trim demo data -->
+<!--                        <div class="col-md-6 p-0">-->
+<!--                            <div class="card rounded-0 shadow-none border h-100">-->
+<!--                                <div class="px-3 py-1 bg-light">-->
+<!--                                    <h5 class="pt-2">Trim</h5>-->
+<!--                                </div>-->
+<!--                                <div class="px-3 pt-2">-->
+<!--                                    <table class="table">-->
+<!--                                        <tbody>-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <strong>Trim Category: Label</strong>-->
+<!--                                                <br>-->
+<!--                                                Brand and wash care label-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                &lt;!&ndash;                        <img alt="image" class="shadow p-1 rounded border bg-secondary" src="http://asia.intels.co/projects/laravel/stripe/public/img/style_trims/1.png" width="65">&ndash;&gt;-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <strong>Trim Category: Thread</strong>-->
+<!--                                                <br>-->
+<!--                                                Blue thread-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                &lt;!&ndash;                        <img alt="image" class="shadow p-1 rounded border bg-secondary" src="http://asia.intels.co/projects/laravel/stripe/public/img/style_trims/2.png" width="65">&ndash;&gt;-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <strong>Trim Category: Thread</strong>-->
+<!--                                                <br>-->
+<!--                                                Green thread-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                &lt;!&ndash;                        <img alt="image" class="shadow p-1 rounded border bg-secondary" src="http://asia.intels.co/projects/laravel/stripe/public/img/style_trims/.png" width="65">&ndash;&gt;-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>-->
+<!--                                                <strong>Trim Category: Accessory</strong>-->
+<!--                                                <br>-->
+<!--                                                Poly bag-->
+<!--                                            </td>-->
+<!--                                            <td>-->
+<!--                                                &lt;!&ndash;                        <img alt="image" class="shadow p-1 rounded border bg-secondary" src="http://asia.intels.co/projects/laravel/stripe/public/img/style_trims/.jpg" width="65">&ndash;&gt;-->
+<!--                                            </td>-->
+<!--                                        </tr>-->
+<!--                                        </tbody>-->
+<!--                                    </table>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                        sketch-->
+                    <div class="row">
+                        <div class="col-md-12 p-0">
+                            <div class="card rounded-0 shadow-none border h-100">
+                                <div class="px-3 py-1 bg-light">
+                                    <h5 class="pt-2">Sketch</h5>
+                                </div>
+                                <div class="px-3 pt-2">
+                                    <div class="row">
+                                        <div class="col-xl-4 col-md-6 my-2 mx-auto text-center"
+                                        th:each="me:${measurementAttachmentList}">
+                                            <div class="card bg-transparent rounded-0 shadow-none">
+                                                <strong th:text="${me.name}"><u>Front</u></strong>
+                                                <br>
+                                                <img height="300px"
+                                                     th:src="@{${'/measurement_attachment/display?id=' + me.id} }">
+                                            </div>
+                                        </div>
+<!--                                        <div class="col-xl-4 col-md-6 my-2 mx-auto text-center">-->
+<!--                                            <div class="card bg-transparent rounded-0 shadow-none">-->
+<!--                                                <strong><u>Collar</u></strong>-->
+<!--                                                <br>-->
+<!--                                                &lt;!&ndash;                        <img alt="image" class="img-fluid mx-auto" src="http://asia.intels.co/projects/laravel/stripe/public/img/measurement_attachments/2.png" />&ndash;&gt;-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="col-xl-4 col-md-6 my-2 mx-auto text-center">-->
+<!--                                            <div class="card bg-transparent rounded-0 shadow-none">-->
+<!--                                                <strong><u>V neck collar</u></strong>-->
+<!--                                                <br>-->
+<!--                                                &lt;!&ndash;                        <img alt="image" class="img-fluid mx-auto" src="http://asia.intels.co/projects/laravel/stripe/public/img/measurement_attachments/3.png" />&ndash;&gt;-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 p-0">
+                            <div class="card rounded-0 shadow-none border h-100">
+                                <div class="px-3 py-1 bg-light">
+                                    <h5 class="pt-2">Measurement (in inch)</h5>
+                                </div>
+                                <div class="">
+                                    <table class="table table-striped table-bordered">
+                                        <thead class="border-bottom">
+                                        <tr>
+                                            <th>SI</th>
+                                            <th>Description</th>
+                                            <th class="text-center">Tolerance (+/-)</th>
+                                            <th>S</th>
+                                            <th>M</th>
+                                            <th>L</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="si, istat:${measurementDetailsList}">
+                                            <td th:text="${istat.count}"></td>
+                                            <!--                <td th:text="${si.styleId.code}"></td>-->
+                                            <td th:text="${si.description}"></td>
+                                            <td th:text="${si.tolerance}"></td>
+                                            <td th:text="${si.small}"></td>
+                                            <td th:text="${si.medium}"></td>
+                                            <td th:text="${si.large}"></td>
+                                        </tr>
+<!--                                        <tr>-->
+<!--                                            <td>B</td>-->
+<!--                                            <td>Bottom hem</td>-->
+<!--                                            <td class="text-center">0.5</td>-->
+<!--                                            <td>18</td>-->
+<!--                                            <td>20</td>-->
+<!--                                            <td>21</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>C</td>-->
+<!--                                            <td>Body length</td>-->
+<!--                                            <td class="text-center">1</td>-->
+<!--                                            <td>26</td>-->
+<!--                                            <td>28</td>-->
+<!--                                            <td>29</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>D</td>-->
+<!--                                            <td>Across sholder</td>-->
+<!--                                            <td class="text-center">0.5</td>-->
+<!--                                            <td>15</td>-->
+<!--                                            <td>17</td>-->
+<!--                                            <td>18</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>E</td>-->
+<!--                                            <td>Sleeve length</td>-->
+<!--                                            <td class="text-center">0.5</td>-->
+<!--                                            <td>7</td>-->
+<!--                                            <td>8</td>-->
+<!--                                            <td>8.5</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>F</td>-->
+<!--                                            <td>Sleeve opening</td>-->
+<!--                                            <td class="text-center">0.25</td>-->
+<!--                                            <td>5.5</td>-->
+<!--                                            <td>6</td>-->
+<!--                                            <td>6.25</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>G</td>-->
+<!--                                            <td>Arm hole</td>-->
+<!--                                            <td class="text-center">0.25</td>-->
+<!--                                            <td>8</td>-->
+<!--                                            <td>9</td>-->
+<!--                                            <td>9.5</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>H</td>-->
+<!--                                            <td>Neck width</td>-->
+<!--                                            <td class="text-center">0.25</td>-->
+<!--                                            <td>6.75</td>-->
+<!--                                            <td>7</td>-->
+<!--                                            <td>7</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>I</td>-->
+<!--                                            <td>Neck drop</td>-->
+<!--                                            <td class="text-center">0.25</td>-->
+<!--                                            <td>2.25</td>-->
+<!--                                            <td>2.5</td>-->
+<!--                                            <td>2.75</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>J</td>-->
+<!--                                            <td>Neck rib high</td>-->
+<!--                                            <td class="text-center">0.125</td>-->
+<!--                                            <td>0.75</td>-->
+<!--                                            <td>0.75</td>-->
+<!--                                            <td>0.75</td>-->
+<!--                                        </tr>-->
+<!--                                        <tr>-->
+<!--                                            <td>K</td>-->
+<!--                                            <td>Neck drop (V Neck)</td>-->
+<!--                                            <td class="text-center">0.125</td>-->
+<!--                                            <td>4</td>-->
+<!--                                            <td>4.25</td>-->
+<!--                                            <td>4.25</td>-->
+<!--                                        </tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="button" class="btn btn-primary" onclick="printDiv('printableArea')"><i
+                            class="fas fa-print mr-2"></i> Print
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+</script>
+<div th:insert="~{footer.html}"></div>

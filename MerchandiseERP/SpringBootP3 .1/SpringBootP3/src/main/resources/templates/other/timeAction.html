@@ -1,0 +1,419 @@
+<div th:insert="~{header.html}"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+<!--    <a href=/uom/addform class="btn btn-sm btn-primary">Create New</a>-->
+
+    <div>
+        <section class="section">
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                <div class="w-100 d-flex justify-content-between align-items-end">
+                                    <h4 class="color-primary">Order TNA</h4>
+                                    <a href=/order_details/list
+                                       class="btn btn-lg btn-primary rounded">Manage Order</a>
+                                </div>
+                            </div>
+                            <div class="card-body" id="printableArea">
+                                <h3 class="text-center color-primary">TECHPACKER</h3>
+                                <h4 class="text-center text-uppercase"
+                                th:text="'Time & Action Calendar #'+${orderdetails.id}"
+                                >Time & Action Calendar #13</h4>
+                                <div class="row">
+                                    <div class="col-6 border">
+                                        <p class="mb-0">Buyer:</p>
+                                        <h6 class="text-dark"
+                                        th:text ="${orderdetails.buyersId.organization}"
+                                        >ARC</h6>
+                                    </div>
+                                    <div class="col-6 border">
+                                        <p class="mb-0">Country:</p>
+                                        <h6 class="text-dark"
+                                        th:text ="${orderdetails.buyersId.country}"
+                                        >Germany</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 border">
+                                        <p class="mb-0">Style Code:</p>
+                                        <h6 class="text-dark"
+                                        th:text="${orderdetails.styleId.code}"
+                                        >ST123</h6>
+                                    </div>
+                                    <div class="col-4 border">
+                                        <p class="mb-0">Style Category:</p>
+                                        <h6 class="text-dark"
+                                        th:text="${orderdetails.styleId.categoriesId.name}"
+                                        >Shirt</h6>
+                                    </div>
+                                    <div class="col-4 border">
+                                        <p class="mb-0">Style Details:</p>
+                                        <h6 class="text-dark"
+                                        th:text="${orderdetails.styleId.description}"
+                                        >Short sleeve shirt</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 border">
+                                        <p class="mb-0">Order date:</p>
+                                        <h6 class="text-dark"
+                                        th:text="${orderdetails.oderDate}"
+                                        >2022-06-11 00:00:00</h6>
+                                    </div>
+                                    <div class="col-6 border">
+                                        <p class="mb-0">Delivery date:</p>
+                                        <h6 class="text-dark"
+                                        th:text="${orderdetails.deliveryDate}"
+                                        >2022-08-25 00:00:00</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 border">
+                                        <p class="mb-0">Lead Time as per PO(Purchase Order):</p>
+                                        <h6 class="text-dark" id="potime"
+
+                                        >2022-06-11 00:00:00</h6>
+                                    </div>
+                                    <div class="col-6 border">
+                                        <p class="mb-0">Lead Time as per Plan:</p>
+                                        <h6 class="text-dark" id="plantime"
+
+                                        >2022-08-25 00:00:00</h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 p-0">
+                                        <div class="card rounded-0 shadow-none border h-100">
+
+                                            <div class="px-3 pt-2">
+                                                <div class="row">
+                                                    <div class="col-12 table-responsive">
+                                                        <table class="table table-striped table-bordered"
+                                                        id="tnaTable"
+                                                        >
+                                                            <thead class="bg-light">
+                                                            <tr>
+                                                                <th rowspan="2">SL</th>
+                                                                <th rowspan="2">Activities</th>
+                                                                <th colspan="2" class="text-center bg-white border">
+                                                                    Expected Date
+                                                                </th>
+                                                                <th colspan="2" class="text-center bg-white border">
+                                                                    Actual Date
+                                                                </th>
+                                                                <th rowspan="2">Remark</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <th class="text-center bg-white border">Start Date</th>
+                                                                <th class="text-center bg-white border">End Date</th>
+                                                                <th class="text-center bg-white border">Start Date</th>
+                                                                <th class="text-center bg-white border">End Date</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr class="border-top"
+                                                            th:each="tna,istat:${tnaList}">
+                                                                <th th:text="${istat.count}">1</th>
+                                                                <td th:text="${tna.taskId.name}">Confirmation of order</td>
+                                                                <td class="text-center"
+                                                                th:text="${tna.expectedStartDate}"
+                                                                >
+                                                                    2022-06-11
+                                                                </td>
+                                                                <td class="text-center"
+                                                                    th:text="${tna.expectedEndDate}"
+                                                                >
+                                                                    -
+                                                                </td>
+                                                                <td class="text-center"
+                                                                    th:text="${tna.actualStartDate}"
+                                                                >
+                                                                    -
+                                                                </td>
+                                                                <td class="text-center"
+                                                                    th:text="${tna.actualEndDate}"
+                                                                >
+                                                                    -
+                                                                </td>
+                                                                <td th:text="${tna.remarks}"></td>
+                                                            </tr>
+<!--                                                            static data-->
+<!--                                                            <tr class="border-top">-->
+<!--                                                                <th>2</th>-->
+<!--                                                                <td>Release raw material PO</td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-06-12-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td></td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr class="border-top">-->
+<!--                                                                <th>3</th>-->
+<!--                                                                <td>Raw material in store</td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-06-21-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td></td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr class="border-top">-->
+<!--                                                                <th>4</th>-->
+<!--                                                                <td>PP meeting</td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-06-22-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td></td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr class="border-top">-->
+<!--                                                                <th>5</th>-->
+<!--                                                                <td>Production planning</td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-06-23-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-06-25-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td></td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr class="border-top">-->
+<!--                                                                <th>6</th>-->
+<!--                                                                <td>Cutting</td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-06-26-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-06-28-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td></td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr class="border-top">-->
+<!--                                                                <th>7</th>-->
+<!--                                                                <td>Sewing</td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-06-29-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-07-29-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td></td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr class="border-top">-->
+<!--                                                                <th>8</th>-->
+<!--                                                                <td>Washing</td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-07-30-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-07-31-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td></td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr class="border-top">-->
+<!--                                                                <th>9</th>-->
+<!--                                                                <td>Finishing</td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-08-01-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-08-03-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td></td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr class="border-top">-->
+<!--                                                                <th>10</th>-->
+<!--                                                                <td>Packing</td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-08-04-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-08-06-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td></td>-->
+<!--                                                            </tr>-->
+<!--                                                            <tr class="border-top">-->
+<!--                                                                <th>11</th>-->
+<!--                                                                <td>Despatch</td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-08-13-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    2022-08-20-->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td class="text-center">-->
+<!--                                                                    - -->
+<!--                                                                </td>-->
+<!--                                                                <td></td>-->
+<!--                                                            </tr>-->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-footer">
+                                <button type="button" class="btn btn-primary" onclick="printDiv('printableArea')"><i
+                                        class="fas fa-print mr-2"></i> Print
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+
+    // function dayDiff(tdName,myTable,scell,ecell){
+    //     var table= document.getElementById('myTable');
+    //     var days=0;
+    //     for (var i=1; i< table.rows.length; i++){
+    //         var startDate = table.rows[i].cells[scell];
+    //         var endDate = table.rows[i].cells[ecell];
+    //
+    //         const mStartDate = new Date(startDate);
+    //         const mEndDate = new Date(endDate);
+    //
+    //         // Calculate the time difference in milliseconds
+    //         const timeDifference = mendDate.getTime() - mstartDate.getTime();
+    //
+    //         // Convert the time difference to days
+    //         days += Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    //
+    //     }
+    //     document.getElementById(tdName).innerHTML= dayDiff(tdName,myTable,scell,ecell);
+    //
+    // }
+    // window.onload = function () {
+    //     dayDiff('potime','tnaTable',3,4);
+    // };
+    function dayDiff(tdName, myTable, scell, ecell) {
+        var table = document.getElementById(myTable);
+        var days = 0;
+
+        for (var i = 1; i < table.rows.length; i++) {
+            var startDateCell = table.rows[i].cells[scell];
+            var endDateCell = table.rows[i].cells[ecell];
+
+            // Check if the cells are defined
+            if (startDateCell && endDateCell) {
+                var startDate = startDateCell.textContent.trim();
+                var endDate = endDateCell.textContent.trim();
+
+                if (startDate && endDate) {
+                    // const mStartDate = new Date(endDate);
+                    // const mEndDate = new Date(startDate);
+                    const mStartDate = new Date(startDate);
+                    const mEndDate = new Date(endDate);
+
+                    // Check if the dates are valid
+                    if (!isNaN(mStartDate.getTime()) && !isNaN(mEndDate.getTime())) {
+                        // Calculate the time difference in milliseconds
+                        if(mStartDate.getTime() == mEndDate.getTime()){
+                            days +=2;
+
+                        }
+
+                        const timeDifference = mEndDate.getTime() - mStartDate.getTime();
+
+
+
+                        // Convert the time difference to days
+                        days += Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+                    }
+                }
+            }
+        }
+
+        document.getElementById(tdName).innerHTML = days;
+    }
+
+    window.onload = function () {
+        dayDiff('potime', 'tnaTable', 2, 3);
+        dayDiff('plantime', 'tnaTable', 4, 5);
+    };
+
+
+</script>
+<div th:insert="~{footer.html}"></div>

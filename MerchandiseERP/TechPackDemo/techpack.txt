@@ -1,0 +1,34 @@
+TechPack 2 create Steps
+1. Sale > Style > Create Style 
+2. Write custome Style code, select category, style description.
+3.Sale > Style Attachment
+4. Upload image for BOM , main color image.
+5. Sale> Measurement Details
+6. Choose Style code, measurement decription, tolerance, s,m,l size entry
+7.Sale>Measurement Attachment ,image
+8. image for Techpack ,Front , back, stich.
+9.Sale > Raw material 
+10.Choose Style code, matrial category choice , matrial name, descrip, 
+unit, cost per unit, vendor, image.
+11.Sale>Style Material Quanity
+12.style code, raw mat , size(L,M,S), quantity
+TechPack Data Done.
+
+BOM Data start
+1.BOM> labor cost
+2. style code, dept, rate(money),hour.
+BOM Done. Most data come from sale.
+
+Create Order for Registred Buyers
+1.Buyers > Order Details
+2.style code, buyer, order date , delivery date , status
+3.size , quantity, price(Make decision on price ,it affect revenue)
+
+Inventory
+1.Purchase product
+2.Assign stock for use.
+
+________________Style Create_______________________
+1.Image> blueCoat.png --style attachment.
+2.Measurement description
+ 

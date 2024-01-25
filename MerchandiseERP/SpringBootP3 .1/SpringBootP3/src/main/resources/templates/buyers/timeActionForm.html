@@ -1,0 +1,70 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/time_action/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/time_action/save}" th:object="${timeAction}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+
+            <div class="mb-3">
+                <label for="order" class="form-label">Order Code</label>
+                <select name="order" id="order" class="form-control"
+                        th:field="*{orderId}">
+                    <option th:each="sta:${orderDetailsList}"
+                            th:text="${sta.buyersId.organization}+'-'+${sta.styleId.code}"
+                            th:value="${sta.id}">Select one
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="task" class="form-label">Task Code</label>
+                <select name="task" id="task" class="form-control"
+                        th:field="*{taskId}">
+                    <option th:each="sta:${taskList}" th:text="${sta.name}"
+                            th:value="${sta.id}">Select one
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="mb-3">
+                <label for="Expected Start Date" class="form-label">Expected Start Date</label>
+                <input type="date" class="form-control" id="Expected Start Date" th:field="*{expectedStartDate}">
+
+            </div>
+            <div class="mb-3">
+                <label for="Expected End Date" class="form-label">Expected End Date</label>
+                <input type="date" class="form-control" id="Expected End Date" th:field="*{expectedEndDate}">
+
+            </div>
+            <div class="mb-3">
+                <label for="Actual start Date" class="form-label">Actual Start Date</label>
+                <input type="date" class="form-control" id="Actual start Date" th:field="*{actualStartDate}">
+
+            </div>
+            <div class="mb-3">
+                <label for="Actual End Date" class="form-label">Actual End Date</label>
+                <input type="date" class="form-control" id="Actual End Date" th:field="*{actualEndDate}">
+
+            </div>
+            <div class="mb-3">
+                <label for="remarks" class="form-label">Remarks</label>
+                <input type="text" class="form-control" id="remarks" th:field="*{remarks}">
+
+            </div>
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

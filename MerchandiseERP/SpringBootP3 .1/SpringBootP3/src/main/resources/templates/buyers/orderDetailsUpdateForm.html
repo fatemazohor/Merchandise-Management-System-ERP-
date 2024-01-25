@@ -1,0 +1,106 @@
+<div th:insert="~{header.html}"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/order_details/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/order_details/save}" th:object="${orderDetails}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+
+            <div class="mb-3">
+                <label for="styleCode" class="form-label">Style Code</label>
+                <select name="styleCode" id="styleCode" class="form-control" th:field="*{styleId}">
+                    <option th:each="style:${styleList}" th:text="${style.code}"
+                            th:value="${style.id}">Select one
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="styleCode" class="form-label">Style Code</label>
+                <select name="buyerName" id="buyerName" class="form-control" th:field="*{buyersId}">
+                    <option th:each="buy:${buyersList}" th:text="${buy.organization}"
+                            th:value="${buy.id}">Select one
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="mb-3">
+                <label for="txtShippingAddress">Shipping Address</label>
+                <textarea th:field="*{shippingAddress}" id="txtShippingAddress" class="form-control"></textarea>
+
+            </div>
+            <div class="mb-3">
+                <label for="order" class="form-label">Order Date</label>
+                <input type="date" class="form-control" id="order" th:field="*{oderDate}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="delivery" class="form-label">Delivery Date</label>
+                <input type="date" class="form-control" id="delivery" th:field="*{deliveryDate}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="orderStatus" class="form-label">Style Code</label>
+                <select name="orderStatus" id="orderStatus" class="form-control"
+                        th:field="*{orStatusId}">
+                    <option th:each="sta:${orderStatusList}" th:text="${sta.name}"
+                            th:value="${sta.id}">Select one
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="mb-3">
+                <label for="txtTotalAmount" class="form-label">Total Amount</label>
+                <input type="text" class="form-control" id="txtTotalAmount" th:field="*{totalAmount}" readonly>
+
+            </div>
+            <div class="mb-3">
+                <label for="txtPaidAmount" class="form-label">Paid Amount</label>
+                <input type="text" class="form-control" id="txtPaidAmount" th:field="*{paid}">
+
+            </div>
+            <div class="mb-3">
+                <label for="txtDueAmount" class="form-label">Due Amount</label>
+                <input type="text" class="form-control" id="txtDueAmount" >
+
+            </div>
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
+<script>
+    function updatePaid() {
+        var due = parseFloat(document.getElementById('txtDueAmount').value) || 0;
+        var paid = parseFloat(document.getElementById('txtPaidAmount').value) || 0;
+        var total = parseFloat(document.getElementById('txtTotalAmount').value) || 0;
+
+        if (!isNaN(due) && !isNaN(paid) ) {
+            // Only update due if both due and paid are valid numbers
+            due = total - paid;
+        } else {
+            // Handle invalid input (non-numeric)
+            alert('Please enter valid numeric values for Due and Paid.');
+        }
+
+        document.getElementById('txtDueAmount').value = due.toFixed(2);
+    }
+    window.onload = function() {
+        updatePaid();
+    };
+    document.getElementById('txtPaidAmount').addEventListener('keyup', updatePaid);
+</script>
+<div th:insert="~{footer.html}"></div>

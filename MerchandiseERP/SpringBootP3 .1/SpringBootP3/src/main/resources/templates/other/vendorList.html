@@ -1,0 +1,44 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/vendor/addform class="btn btn-sm btn-primary">Create New</a>
+
+    <div class="py-2">
+        <table class="table table-striped text-center">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+<!--                <th scope="col">Serial</th>-->
+                <th scope="col">Company name</th>
+                <th scope="col">Contact Person</th>
+                <th scope="col">Cell</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="vendor, iterstat:${vendorList}">
+                <td th:text="${vendor.id}"></td>
+<!--                <td th:text="${iterstat.count}"></td>-->
+                <td th:text="${vendor.company}"></td>
+                <td th:text="${vendor.contactPerson}"></td>
+                <td th:text="${vendor.cell}"></td>
+                <td th:text="${vendor.email}"></td>
+                <td th:text="${vendor.address}"></td>
+                <td>
+                    <a  class="btn btn-warning" th:href="@{'/vendor_edit/'+${vendor.id}}">Update</a>
+
+                    <a  class="btn btn-danger" th:href="@{'/vendor/delete/'+${vendor.id}}">Delete</a>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

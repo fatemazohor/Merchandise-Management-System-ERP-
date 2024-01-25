@@ -1,0 +1,37 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+<!--    <a href=/style/addform class="btn btn-sm btn-primary">Create New</a>-->
+
+    <div class="py-2">
+        <table class="table table-striped text-center">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Style Code</th>
+<!--                <th scope="col">Category</th>-->
+                <th scope="col">Description</th>
+                <th scope="col">BOM</th>
+<!--                <th scope="col">Action</th>-->
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="style:${styleList}">
+                <td th:text="${style.id}"></td>
+                <td th:text="${style.code}"></td>
+<!--                <td th:text="${style.categoriesId.name}"></td>-->
+                <td th:text="${style.description}"></td>
+                <td >
+                    <a  class="btn btn-sm btn-outline-primary shadow-sm rounded-pill"
+                        th:href="@{'/bill_of_material/'+${style.id}}" th:target="_blank">BOM</a>
+                </td>
+
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

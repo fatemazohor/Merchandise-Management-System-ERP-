@@ -1,0 +1,44 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/buyers/addform class="btn btn-sm btn-primary">Create New</a>
+
+    <div class="py-2">
+        <table class="table table-striped text-center">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Organization</th>
+                <th scope="col">Contact Person</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+<!--                <th scope="col">Address</th>-->
+                <th scope="col">Country</th>
+                <th scope="col">Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="si:${buyersList}">
+                <td th:text="${si.id}"></td>
+                <td th:text="${si.organization}"></td>
+                <td th:text="${si.contactPerson}"></td>
+                <td th:text="${si.phone}"></td>
+                <td th:text="${si.email}"></td>
+<!--                <td th:text="${si.address}"></td>-->
+                <td th:text="${si.country}"></td>
+                <td>
+                    <a  class="btn btn-warning" th:href="@{'/buyers_edit/'+${si.id}}">Update</a>
+
+                    <a  class="btn btn-danger" th:href="@{'/buyers/delete/'+${si.id}}">Delete</a>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

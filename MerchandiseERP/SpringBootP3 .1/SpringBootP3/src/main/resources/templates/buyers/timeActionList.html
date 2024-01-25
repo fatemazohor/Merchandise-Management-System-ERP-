@@ -1,0 +1,65 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/time_action/addform class="btn btn-sm btn-primary">Create New</a>
+
+    <div class="py-2">
+        <table class="table table-striped text-center">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Order Id</th>
+                <th scope="col">Task</th>
+                <th scope="col">Expected Start Date</th>
+                <th scope="col">Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="si:${timeActionList}">
+                <td th:text="${si.id}"></td>
+                <td th:text="${si.orderId.buyersId.organization}+'-'+${si.orderId.styleId.code}"></td>
+                <td th:text="${si.taskId.name}"></td>
+                <td th:text="${si.expectedStartDate}"></td>
+                <td>
+                    <a  class="btn btn-warning" th:href="@{'/time_action_edit/'+${si.id}}">Update</a>
+
+                    <a  class="btn btn-danger" th:href="@{'/time_action/delete/'+${si.id}}">Delete</a>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+<!--        pagination-->
+
+        <div th:if="${totalPages > 1}">
+            <div class="row col-md-10">
+                <div class="col-sm-2"
+                     th:text="'Total Rows '+${totalItems}">
+                </div>
+                <div class="col-sm-2">
+                    <span th:each="index:${#numbers.sequence(1,totalPages)}">
+                        <a th:if="${currentPage != index}"
+                           th:href="@{'/tpage/'+${index}}" th:text="${index}"></a>
+                        <span th:unless="${currentPage != index}" th:text="${index}"></span>
+                        &nbsp; &nbsp;
+                    </span>
+                </div>
+                <div class="col-sm-1">
+                    <a th:if="${currentPage < totalPages}"
+                       th:href="@{'/tpage/'+${currentPage+1}}">Next</a>
+                    <span th:unless="${currentPage < totalPages}">Next</span>
+                </div>
+                <div class="col-sm-1">
+                    <a th:if="${currentPage < totalPages}"
+                       th:href="@{'/tpage/'+${totalPages}}">Last</a>
+                    <span th:unless="${currentPage < totalPages}">Last</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

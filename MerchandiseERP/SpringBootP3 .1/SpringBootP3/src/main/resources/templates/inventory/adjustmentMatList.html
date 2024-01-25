@@ -1,0 +1,44 @@
+<div th:insert="~{header.html}"></div>
+
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}"></h4>
+<!--    <p class="pb-0">Best seller of the month cate</p>-->
+    <a href=/adjustment_material/addform class="btn btn-sm btn-primary">Create New</a>
+
+    <div>
+
+        <table class="table table-striped text-center">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Status</th>
+                <th scope="col">Material</th>
+                <th scope="col">Remarks</th>
+
+
+                <th scope="col">Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="uom:${adjustmentMatList}">
+                <td th:text="${uom.id}"></td>
+                <td th:text="${uom.stockAdjustmentId.name}"></td>
+                <td th:text="${uom.rawMaterialId.name}"></td>
+                <td th:text="${uom.remarks}"></td>
+<!--                <td th:text="${uom.total}"></td>-->
+<!--                <td th:text="${uom.statusId.name}"></td>-->
+                <td>
+                    <a  class="btn btn-warning" th:href="@{'/adjustment_material_edit/'+${uom.id}}">Update</a>
+
+                    <a  class="btn btn-danger" th:href="@{'/adjustment_material/delete/'+${uom.id}}">Delete</a>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div th:insert="~{footer.html}"></div>

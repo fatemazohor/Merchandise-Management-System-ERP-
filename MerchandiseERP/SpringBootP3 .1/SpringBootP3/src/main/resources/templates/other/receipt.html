@@ -1,0 +1,130 @@
+<div th:insert="~{header.html}"></div>
+<div>
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <div class="w-100 d-flex justify-content-between align-items-end">
+                                <h4 class="color-primary">Order Details</h4>
+                                <a href=/order_details/list
+                                   class="btn btn-lg btn-primary rounded"><i class="fas fa-wrench mr-1"></i> Manage
+                                    Order</a>
+                            </div>
+                        </div>
+                        <div class="card-body" id="printableArea">
+                            <h3 class="color-primary text-center mb-0 mt-3">TechPacker</h3>
+                            <h4 class="text-center" th:text="'Buyers Order # '+${details.id}">Buyer's Order #13</h4>
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="color-primary my-0"><u>Buyer:</u></h6>
+                                    <h6 class="my-0" th:text="${details.buyersId.organization}">ARC</h6>
+                                    <div class="text-dark" th:text="${details.buyersId.country}">
+                                        City street<br/>
+                                        56854864<br/>
+                                        r@bd.com<br/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <h6></h6>
+                                    <table class="ml-auto">
+                                        <tr>
+                                            <th>Order date:</th>
+                                            <td th:text="${details.oderDate}">2022-06-11 00:00:00</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Delivery date:</th>
+                                            <td th:text="${details.deliveryDate}">2022-08-25 00:00:00</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Status:</th>
+                                            <td th:text="${details.orStatusId.name}">Invoiced</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-12 table-responsive">
+                                    <hr>
+                                    <table class="table table-striped">
+                                        <thead class="bg-light">
+                                        <tr>
+<!--                                            <th>SL</th>-->
+                                            <th> L Qty</th>
+                                            <th class="text-right">M Qty</th>
+                                            <th class="text-right">S Qty</th>
+                                            <th class="text-right"> Total Price</th>
+<!--                                            <th class="text-right">VAT</th>-->
+<!--                                            <th class="text-right">Subtotal</th>-->
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr class="border-top">
+<!--                                            <th>1</th>-->
+                                            <td th:text="${details.lAmount}">XXS</td>
+                                            <td class="text-right" th:text="${details.mAmount}">100</td>
+                                            <td class="text-right" th:text="${details.sAmount}">50</td>
+                                            <td class="text-right" th:text="${details.totalAmount}">0</td>
+<!--                                            <td class="text-right">0</td>-->
+<!--                                            <td class="text-right">5000</td>-->
+                                        </tr>
+<!--                                        <tr class="border-top">-->
+<!--                                            <th>2</th>-->
+<!--                                            <td>XS</td>-->
+<!--                                            <td class="text-right">200</td>-->
+<!--                                            <td class="text-right">80</td>-->
+<!--                                            <td class="text-right">0</td>-->
+<!--                                            <td class="text-right">0</td>-->
+<!--                                            <td class="text-right">16000</td>-->
+<!--                                        </tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-10 ml-auto bg-light float-right">
+                                    <table class="table table-striped text-end">
+                                        <tfoot>
+                                        <tr class="border-top">
+                                            <th>Paid Amount</th>
+                                            <th th:text="${details.paid}">5050</th>
+                                        </tr>
+<!--                                        <tr class="border-top">-->
+<!--                                            <th>Due Amount</th>-->
+<!--                                            <th class="text-danger" >17000</th>-->
+<!--                                        </tr>-->
+                                        <tr class="border-top">
+                                            <th>Total</th>
+                                            <th th:text="${details.totalAmount}">22050</th>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <div class="col-12 mb-4 text-dark">
+                                    <h6>Remarks:</h6>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button type="button" class="btn btn-primary" onclick="printDiv('printableArea')"><i
+                                    class="fas fa-print mr-2"></i> Print
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+</script>
+<div th:insert="~{footer.html}"></div>

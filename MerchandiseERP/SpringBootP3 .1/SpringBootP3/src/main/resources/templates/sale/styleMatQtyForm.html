@@ -1,0 +1,65 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+<!--    <p class="pb-0">Best seller of the month cate</p>-->
+    <a href=/style_materaial_qty/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/style_materaial_qty/save}" th:object="${styleMatQty}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+
+<!--            style id dropdown -->
+            <div class="mb-3">
+                <label for="styleCode" class="form-label">Style Code</label>
+                <select name="styleCode" id="styleCode" class="form-control" th:field="*{styleId}">
+                    <option  th:each="style:${styleList}" th:text="${style.code}" th:value="${style.id}">Select one</option>
+
+                </select>
+
+            </div>
+<!--            style id dropdown end-->
+
+<!--            raw material name dropdown start-->
+
+            <div class="mb-3">
+                <label for="Raw Material" class="form-label">Raw Material</label>
+                <select name="styleCode" id="Raw Material" class="form-control" th:field="*{rawMaterialId}">
+<!--                    <option  th:each="raw:${rawMaterialList}"-->
+<!--                             th:text="${raw.rawMaterialCatId.name}+'-'+${raw.name}" th:value="${raw.id}">Select one</option>-->
+                    <option  th:each="raw:${rawMaterialList}"
+                             th:text="${raw.styleId.code}+'-'+${raw.rawMaterialCatId.name}+'-'+${raw.name}" th:value="${raw.id}">Select one</option>
+
+                </select>
+
+            </div>
+
+<!--            raw material name dropdown end-->
+
+<!--            Size dropdown-->
+
+            <div class="mb-3">
+                <label for="Size" class="form-label">Size</label>
+                <select name="Size" id="Size" class="form-control" th:field="*{sizeId}">
+                    <option  th:each="si:${sizeList}" th:text="${si.name}" th:value="${si.id}">Select one</option>
+
+                </select>
+
+            </div>
+
+<!--            Size dropdown end-->
+
+
+
+            <div class="mb-3">
+                <label for="Quantity" class="form-label">Quantity</label>
+                <input type="text" class="form-control" id="Quantity" th:field="*{quantity}">
+
+            </div>
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

@@ -1,0 +1,284 @@
+<div th:insert="~{header.html}"></div>
+<div class="px-3 py-3">
+<!--    <h4 class="card-title mb-1" th:text="${title}"></h4>-->
+<!--    <p class="pb-0">Best seller of the month Fatema</p>-->
+<!--    <a href=/purchase/list class="btn btn-sm btn-primary">Manage</a>-->
+    <div>
+        <section class="section">
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                <div class="w-100 d-flex justify-content-between align-items-end">
+                                    <h4 class="color-primary">Create Inventory Purchase</h4>
+                                    <a href=/purchase/list class="btn btn-lg btn-primary rounded"><i class="fas fa-wrench mr-1"></i> Manage Inventory Purchase</a>
+                                </div>
+                            </div>
+                            <div class="text-center mt-3">
+                                <h3 class="color-primary text-center mb-0">TechPacker</h3>
+                                <h4 class="">Inventory Purchase</h4>
+                            </div>
+                            <hr>
+                            <form th:action="@{/purchase/save}" method="POST" th:object="${purchase}" enctype="multipart/form-data">
+                                <input type="hidden" th:field="*{id}" class="form-control">
+                                <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class='mb-2'>
+                                            <label for="vendor">Vendor</label>
+                                            <div class="mb-3">
+<!--                                                <label for="styleCode" class="form-label">Style Code</label>-->
+                                                <select name="vendor" id="vendor" class="form-control" th:field="*{vendorsId}">
+                                                    <option  th:each="style:${vendorList}" th:text="${style.company}" th:value="${style.id}">Select one</option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class='mb-2'>
+                                            <label for="purchase status">Purchase Status</label>
+                                            <div class="mb-3">
+<!--                                                <label for="status" class="form-label">Purchase Status</label>-->
+                                                <select name="purchase status" id="purchase status" class="form-control" th:field="*{statusId}">
+                                                    <option  th:each="style:${purchaseStatusList}" th:text="${style.name}" th:value="${style.id}">Select one</option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class='mb-2'>
+                                            <label for="warehouse">Warehouse</label>
+                                            <div class="mb-3">
+<!--                                                <label for="styleCode" class="form-label">Style Code</label>-->
+                                                <select name="warehouse" id="warehouse" class="form-control" th:field="*{wareHouseId}">
+                                                    <option  th:each="style:${warehouseList}" th:text="${style.name}" th:value="${style.id}">Select one</option>
+
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class='mb-2'>
+                                            <label for='txtPurchaseOrderDate' class=''>Purchase Order Date</label>
+                                            <div class=''>
+                                                <input type='date' class='form-control' th:field="*{purchaseDate}" id='txtPurchaseOrderDate'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class='mb-2'>
+                                            <label for='txtDeliveryDate' class=''>Delivery Date</label>
+                                            <div class=''>
+                                                <input type='date' class='form-control' th:field="*{deliveryDate}" id='txtDeliveryDate'>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <hr> -->
+                                <div class="p-3 bg-light border rounded">
+                                    <h6 class="color-primary">Add Raw Material</h6>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class='mb-2'>
+                                                    <label for="rawMaterial">Raw Material</label>
+                                                    <div class="mb-3">
+<!--                                                        <label for="styleCode" class="form-label">Style Code</label>-->
+                                                        <select name="rawMaterial" id="rawMaterial" class="form-control" th:field="*{rawMaterialId}">
+                                                            <option  th:each="style:${rawMaterialList}" th:text="${style.styleId.code}+'-'+${style.name}" th:value="${style.id}">Select one</option>
+
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class='mb-2'>
+                                                    <label for='txtPrice' class=''>Price</label>
+                                                    <div class=''>
+                                                        <input type='text' class='form-control' th:field="*{price}" id='txtPrice'>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class='mb-2'>
+                                                    <label for='txtQuantity' class=''>Quantity</label>
+                                                    <div class=''>
+                                                        <input type='text' class='form-control' th:field="*{quantity}" id='txtQuantity'>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class='mb-2'>
+                                                    <label for='txtDiscount' class=''>Discount</label>
+                                                    <div class=''>
+                                                        <input type='text' class='form-control' name='txtDiscount' id='txtDiscount' >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-md-4">
+                                                <div class='mb-2'><label for='txtVat' class=''>Vat</label><div class=''><input type='text' class='form-control' name='txtVat' id='txtVat' value='' placeholder=''  ></div></div>
+                                            </div> -->
+                                            <div class="col mb-2">
+                                                <input type="button" id="btnAddToCart" name="btnAddToCart" class="btn btn-sm btn-outline-dark float-end" value="Calculate" />
+                                                <input type="button"
+                                                       onclick="clearall()"
+                                                       id="clearAll" class="btn btn-sm btn-outline-danger float-end" value="Empty" />
+                                            </div>
+                                        </div>
+<!--                                        <table class="table table-striped table-sm ">-->
+<!--                                            <thead>-->
+<!--                                            <tr>-->
+<!--                                                <th>#</th>-->
+<!--                                                <th>SL</th>-->
+<!--                                                <th>Item</th>-->
+<!--                                                <th class="text-right">Price</th>-->
+<!--                                                <th class="text-center">Quantity</th>-->
+<!--                                                <th class="text-right">Discount</th>-->
+<!--                                                <th class="text-right">Subtotal</th>-->
+<!--                                            </tr>-->
+<!--                                            </thead>-->
+<!--                                            <tbody id="items">-->
+
+<!--                                            </tbody>-->
+<!--                                        </table>-->
+                                </div>
+                                <hr>
+<!--                                    //subtotal table-->
+                                <div class="row">
+                                    <div class="col-lg-5 order-lg-1 order-2">
+                                        <div class='mb-2'>
+                                            <label for='txtRemark' class=''>Remarks</label>
+                                            <div class=''><input type='text' class='form-control'  id='txtRemark'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 order-lg-2 order-1 ml-auto bg-light">
+                                        <table class="table table-striped text-right">
+                                            <tfoot>
+                                            <tr>
+                                                <th>Subtotal</th>
+                                                <th>
+                                                    <input type="text" class="form-control form-control-sm text-right" name="txtSubtotal" id="txtSubtotal" value="0"/>
+                                                </th>
+                                            </tr>
+<!--                                            <tr class="d-none">-->
+<!--                                                <th></th>-->
+<!--                                                <th>-->
+<!--                                                    <input type="text" class="form-control form-control-sm text-right" name="discount" id="discount" value="0"/>-->
+<!--                                                </th>-->
+<!--                                            </tr>-->
+                                            <tr>
+                                                <th>VAT</th>
+                                                <th>
+                                                    <input type="text" class="form-control form-control-sm text-right" name="txtVat" id="txtVat" value="0"/>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>Paid Amount</th>
+                                                <th>
+                                                    <input type="text" th:field="*{paid}" class="form-control form-control-sm text-right"  id="txtPaidAmount" value="0"/>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>Due Amount</th>
+                                                <th>
+                                                    <input type="text" class="form-control form-control-sm text-right text-danger" name="txtDueAmount" id="txtDueAmount" value="0"/>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>Total</th>
+                                                <th>
+                                                    <input type="text" class="form-control form-control-sm text-right h6" th:field="*{total}" id="txtTotalAmount" value="0"/>
+                                                </th>
+                                            </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+<!--                                <div class="card-footer border-top">-->
+<!--                                    <input type='button' value='Create' name='btnProcessOrder' id='btnProcessOrder' class='btn btn-info' />-->
+<!--                                </div>-->
+                                <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+                                <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+</div>
+
+<script>
+    //function clear all
+    function clearall(){
+
+        var price = document.getElementById('txtPrice').value;
+        var qty = document.getElementById('txtQuantity').value;
+        var discount = document.getElementById('txtDiscount').value;
+
+
+        if (price != null || qty != null || discount != null) {
+            document.getElementById('txtPrice').value = '0.00';
+            document.getElementById('txtQuantity').value = '0.00';
+            document.getElementById('txtDiscount').value = '0.00';
+
+        }
+
+
+    }
+    //function clear all end
+    //function total amount
+    function totalAmount() {
+        var price = parseFloat(document.getElementById('txtPrice').value) || 0;
+        var qty = parseFloat(document.getElementById('txtQuantity').value) || 0;
+        var discount = parseFloat(document.getElementById('txtDiscount').value) || 0;
+        // var mprice = parseFloat(document.getElementById('txtPriceM').value) || 0;
+        // var lqty = parseFloat(document.getElementById('txtQuantityL').value) || 0;
+        // var lprice = parseFloat(document.getElementById('txtPriceL').value) || 0;
+
+        var subtotal = price * qty -discount;
+        var vat = parseFloat(document.getElementById('txtVat').value) || 0;
+        // var discount = parseFloat(document.getElementById('discount').value) || 0;
+        var total = subtotal + vat;
+        var paid = parseFloat(document.getElementById('txtPaidAmount').value) || 0;
+        var due = total - paid;
+
+        document.getElementById('txtSubtotal').value = subtotal.toFixed(2);
+        document.getElementById('txtTotalAmount').value = total.toFixed(2);
+        document.getElementById('txtDueAmount').value = due.toFixed(2);
+    }
+    //function total amount end
+    //function paid on keyup
+
+    function updatePaid() {
+        var due = parseFloat(document.getElementById('txtDueAmount').value) || 0;
+        var paid = parseFloat(document.getElementById('txtPaidAmount').value) || 0;
+        var total = parseFloat(document.getElementById('txtTotalAmount').value) || 0;
+
+        if (!isNaN(due) && !isNaN(paid) ) {
+            // Only update due if both due and paid are valid numbers
+            due = total - paid;
+        } else {
+            // Handle invalid input (non-numeric)
+            alert('Please enter valid numeric values for Due and Paid.');
+        }
+
+        document.getElementById('txtDueAmount').value = due.toFixed(2);
+    }
+
+    //function paid on keyup end
+    document.getElementById('btnAddToCart').addEventListener('click', totalAmount);
+    document.getElementById('txtPaidAmount').addEventListener('keyup', updatePaid);
+</script>
+
+<div th:insert="~{footer.html}"></div>

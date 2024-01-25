@@ -1,0 +1,146 @@
+<div th:insert="~{header.html}"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}"></h4>
+<!--    <p class="pb-0">Best seller of the month cate</p>-->
+    <a href=/adjustment_material/list class="btn btn-sm btn-primary">Manage</a>
+<!--    //Data entry form-->
+    <form th:action="@{/adjustment_material/save}" th:object="${adjustmentMat}" method="POST" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}" class="form-control">
+        <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class='mb-2'>
+                    <label for="Stock Adjustment">Stock Adjustment Type</label>
+                    <div class="mb-3">
+                        <!--                                                <label for="styleCode" class="form-label">Style Code</label>-->
+                        <select name="Stock Adjustment" id="Stock Adjustment" class="form-control" th:field="*{stockAdjustmentId}">
+                            <option  th:each="style:${stockAdjustmentsList}" th:text="${style.name}" th:value="${style.id}">Select one</option>
+
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class='mb-2'>
+                    <label for="warHouse">Warehouse</label>
+                    <div class="mb-3">
+                        <!--                                                <label for="styleCode" class="form-label">Style Code</label>-->
+                        <select name="warHouse" id="warHouse" class="form-control" th:field="*{wareHouseId}">
+                            <option  th:each="style:${warehouseList}" th:text="${style.name}" th:value="${style.id}">Select one</option>
+
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+<!--            <div class="col-sm-6">-->
+<!--                <div class='mb-2'>-->
+<!--                    <label for="orderDetails">Order Id</label>-->
+<!--                    <div class="mb-3">-->
+<!--                        &lt;!&ndash;                                                <label for="styleCode" class="form-label">Style Code</label>&ndash;&gt;-->
+<!--                        <select name="orderDetails" id="orderDetails" class="form-control" th:field="*{orderDetailsId}">-->
+<!--                            <option  th:each="order:${orderDetailsList}" th:text="${order.buyersId.organization}+'-'+${order.styleId.code}" th:value="${order.id}">Select one</option>-->
+
+<!--                        </select>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="col-12">
+                <div class='mb-2'>
+                    <label for='txtRemark' class=''>Remark</label>
+                    <div class=''>
+                        <input type='text' class='form-control' th:field="*{remarks}"  id='txtRemark' value='' placeholder=''  >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h6 class="color-primary">Item need to be adjusted:</h6>
+
+            </div>
+            <div class="col-lg-4">
+                <div class='mb-2'>
+                    <label for="rawMaterial">Raw Material Id</label>
+                    <div class="mb-3">
+                        <!--                                                <label for="styleCode" class="form-label">Style Code</label>-->
+                        <select name="rawMaterial" id="rawMaterial" class="form-control" th:field="*{rawMaterialId}">
+                            <option  th:each="style:${rawMaterialList}" th:text="${style.name}" th:value="${style.id}">Select one</option>
+
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class='mb-2'>
+                    <label for='txtQuantity' class=''>Quantity</label>
+                    <div class=''>
+                        <input type='text' class='form-control' th:field="*{quantity}" id='txtQuantity' value='' placeholder=''  >
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class='mb-2'>
+                    <label for='txtPrice' class=''>Price</label><div class=''>
+                    <input type='text' class='form-control' th:field="*{price}" id='txtPrice' value='' placeholder=''  >
+                </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <hr>
+                <div class="col mb-2">
+<!--                    <input type="button" id="btnAddToCart" name="btnAddToCart" class="btn btn-sm btn-outline-dark float-end" value="Calculate" />-->
+                    <input type="button" id="clearAll"
+                           onclick="clearall()"
+                           class="btn btn-sm btn-outline-danger float-end" value="Empty" />
+                </div>
+            </div>
+        </div>
+        <div>
+<!--            <table class="table table-striped table-sm ">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th>SL</th>-->
+<!--                    <th>Item</th>-->
+<!--                    <th class="text-right">Price</th>-->
+<!--                    <th class="text-center">Quantity</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody id="items">-->
+
+<!--                </tbody>-->
+<!--            </table>-->
+        </div>
+    </div>
+<!--        <div class="card-footer border-top">-->
+<!--            <input type='button' value='Create' name='btnProcessOrder' id='btnProcessOrder' class='btn btn-info' />-->
+<!--        </div>-->
+        <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<script>
+
+    //function clear all
+    function clearall(){
+
+        var price = document.getElementById('txtPrice').value;
+        var qty = document.getElementById('txtQuantity').value;
+        // var discount = document.getElementById('txtDiscount').value;
+
+
+        if (price != null || qty != null ) {
+            document.getElementById('txtPrice').value = '0.00';
+            document.getElementById('txtQuantity').value = '0.00';
+            // document.getElementById('txtDiscount').value = '0.00';
+
+        }
+
+
+    }
+    //function clear all end
+
+</script>
+<div th:insert="~{footer.html}"></div>

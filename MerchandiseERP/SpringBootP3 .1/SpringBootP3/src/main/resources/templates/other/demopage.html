@@ -1,0 +1,94 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}">Demo page</h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/measurement_details/addform class="btn btn-sm btn-primary">Create New</a>
+
+    <div class="py-2">
+        <table class="table table-striped text-center" id="smallTable">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+<!--                <th scope="col">Style Code</th>-->
+                <th scope="col">Description</th>
+                <th scope="col">Vendor</th>
+                <th scope="col">UOM</th>
+                <th scope="col">Qty</th>
+                <th scope="col">price</th>
+                <th scope="col">Total</th>
+<!--                <th scope="col">total</th>-->
+<!--                <th scope="col">Action</th>-->
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="si, istat:${materailQtyList}">
+                <td th:text="${si.id}"></td>
+<!--                <td th:text="${si.styleId.code}"></td>-->
+                <td th:text="${si.rawMaterialId.name}"></td>
+                <td th:text="${si.rawMaterialId.vendorId.company}"></td>
+                <td th:text="${si.rawMaterialId.uomId.name}"></td>
+                <td th:text="${si.quantity}" class="text-end"></td>
+
+<!--                <td>Price</td>-->
+                <td th:text="${si.rawMaterialId.unitPrice}" class="text-end"></td>
+<!--                <td>Total</td>-->
+                <td th:text="${si.quantity * si.rawMaterialId.unitPrice}" class="text-end">Total</td>
+<!--                <td  th:text="${istat.count}"></td>-->
+<!--                <td th:if="${istat.last} ? ${istat.size}:0">-->
+<!--                    <span th:text="${istat.size}"></span>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <a  class="btn btn-warning" th:href="@{'/measurement_details_edit/'+${si.id}}">Update</a>-->
+
+<!--                    <a  class="btn btn-danger" th:href="@{'/measurement_details/delete/'+${si.id}}">Delete</a>-->
+<!--                </td>-->
+
+            </tr>
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="6" class="text-end fw-bold">Total:</td>
+
+                <td id="totalprice"
+                class="text-end fw-bold">82.1</td>
+
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</div>
+<script>
+    function showTotal(tdName,myTable){
+        // var total=document.getElementById('tdName').innerHTML;
+        var table=document.getElementById(myTable);
+        var totalCost=0;
+
+        for(var i=1; i < table.rows.length; i++){
+
+            var quantityCell = table.rows[i].cells[4];
+            var unitPriceCell = table.rows[i].cells[5];
+
+            // Check if cells exist
+            if (quantityCell && unitPriceCell) {
+                var quantity = parseFloat(quantityCell.textContent.trim()) || 0;
+                var unitPrice = parseFloat(unitPriceCell.textContent.trim()) || 0;
+
+                totalCost += quantity * unitPrice;
+            }
+        }
+        // console.log('Total Cost: ' + totalCost);
+
+        document.getElementById(tdName).innerHTML= totalCost.toFixed(2);;
+
+
+
+    }
+    // Call the function when the page loads
+    window.onload = function () {
+        showTotal('totalprice','smallTable');
+    };
+</script>
+<div th:insert="footer.html"></div>

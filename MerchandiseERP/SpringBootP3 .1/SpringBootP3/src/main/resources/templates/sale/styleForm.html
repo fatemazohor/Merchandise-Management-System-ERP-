@@ -1,0 +1,38 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/style/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/style/save}" th:object="${style}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+            <div class="mb-3">
+                <label for="Style Code" class="form-label">Style Code</label>
+                <input type="text" class="form-control" id="Style Code" th:field="*{code}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="styleCategoriesList" class="form-label">Style Category</label>
+                <select name="styleCategoriesList" id="styleCategoriesList" class="form-control" th:field="*{categoriesId}">
+                    <option  th:each="cat:${styleCategoriesList}" th:text="${cat.name}" th:value="${cat.id}">Select one</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="mb-3">
+                <label for="Style Description" class="form-label">Style Description</label>
+                <input type="text" class="form-control" id="Style Description" th:field="*{description}">
+
+            </div>
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

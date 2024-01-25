@@ -1,0 +1,34 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/stylecategories/addform class="btn btn-sm btn-primary">Create New</a>
+
+    <div class="py-2">
+        <table class="table table-striped text-center">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Style Category</th>
+                <th scope="col">Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cate:${styleCategoriesList}">
+                <td th:text="${cate.id}"></td>
+                <td th:text="${cate.name}"></td>
+                <td>
+                    <a  class="btn btn-warning" th:href="@{'/edit/'+${cate.id}}">Update</a>
+
+                    <a  class="btn btn-danger" th:href="@{'/stylecategories/delete/'+${cate.id}}">Delete</a>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

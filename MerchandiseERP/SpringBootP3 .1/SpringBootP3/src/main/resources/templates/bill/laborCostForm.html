@@ -1,0 +1,54 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/labor_cost/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/labor_cost/save}" th:object="${laborCost}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+
+
+<!--            style code start-->
+            <div class="mb-3">
+                <label for="styleCode" class="form-label">Style Code</label>
+                <select name="styleCode" id="styleCode" class="form-control" th:field="*{styleId}">
+                    <option  th:each="style:${styleList}" th:text="${style.code}" th:value="${style.id}">Select one</option>
+
+                </select>
+
+            </div>
+            <!--            style code  end-->
+
+            <!--            department start-->
+            <div class="mb-3">
+                <label for="department" class="form-label">Department</label>
+                <select name="styleCode" id="department" class="form-control" th:field="*{departmentId}">
+                    <option  th:each="dept:${departmentList}" th:text="${dept.name}" th:value="${dept.id}">Select one</option>
+
+                </select>
+
+            </div>
+            <!--           department  end-->
+
+
+
+            <div class="mb-3">
+                <label for="Rate" class="form-label">Rate per Hour</label>
+                <input type="text" class="form-control" id="Rate" th:field="*{unitCost}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="hour" class="form-label">Hour</label>
+                <input type="text" class="form-control" id="hour" th:field="*{hour}">
+
+            </div>
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

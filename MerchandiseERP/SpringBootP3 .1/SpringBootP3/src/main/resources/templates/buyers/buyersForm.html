@@ -1,0 +1,48 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/buyers/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/buyers/save}" th:object="${buyers}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+            <div class="mb-3">
+                <label for="Organization" class="form-label">Organization</label>
+                <input type="text" class="form-control" id="Organization" th:field="*{organization}">
+
+            </div>
+            <div class="mb-3">
+                <label for="ContactPerson" class="form-label">Contact Person</label>
+                <input type="text" class="form-control" id="ContactPerson" th:field="*{contactPerson}">
+
+            </div>
+            <div class="mb-3">
+                <label for="Phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="Phone" th:field="*{phone}">
+
+            </div>
+            <div class="mb-3">
+                <label for="Email" class="form-label">Email</label>
+                <input type="text" class="form-control" id="Email" th:field="*{email}">
+
+            </div>
+            <div class="mb-3">
+                <label for="Address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="Address" th:field="*{address}">
+
+            </div>
+            <div class="mb-3">
+                <label for="Country" class="form-label">Country</label>
+                <input type="text" class="form-control" id="Country" th:field="*{country}">
+
+            </div>
+
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

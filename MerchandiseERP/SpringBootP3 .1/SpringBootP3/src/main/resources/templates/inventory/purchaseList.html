@@ -1,0 +1,51 @@
+<div th:insert="~{header.html}"></div>
+
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1" th:text="${title}"></h4>
+<!--    <p class="pb-0">Best seller of the month cate</p>-->
+    <a href=/purchase/addform class="btn btn-sm btn-primary">Create New</a>
+
+    <div>
+
+        <table class="table table-striped text-center">
+            <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Vendor</th>
+                <th scope="col">Order Date</th>
+                <th scope="col">Delivery Date</th>
+                <th scope="col">Total</th>
+                <th scope="col">Status</th>
+
+                <th scope="col">Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="uom:${purchaseList}">
+                <td th:text="${uom.id}"></td>
+                <td th:text="${uom.vendorsId.company}"></td>
+                <td th:text="${uom.purchaseDate}"></td>
+                <td th:text="${uom.deliveryDate}"></td>
+                <td th:text="${uom.total}"></td>
+<!--                <td th:text="${uom.statusId.name}"></td>-->
+                <th:block th:switch="${uom.statusId.id}">
+                <td th:text="${uom.statusId.name}" th:case="1" class="badge bg-warning text-dark"></td>
+                <td th:text="${uom.statusId.name}" th:case="2" class="badge bg-info text-dark"></td>
+                <td th:text="${uom.statusId.name}" th:case="3" class="badge bg-success text-dark"></td>
+                <td th:text="${uom.statusId.name}" th:case="4" class="badge bg-dark "></td>
+                </th:block>
+                <td>
+                    <a  class="btn btn-warning" th:href="@{'/purchase_edit/'+${uom.id}}">Update</a>
+
+                    <a  class="btn btn-danger" th:href="@{'/purchase/delete/'+${uom.id}}">Delete</a>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div th:insert="~{footer.html}"></div>

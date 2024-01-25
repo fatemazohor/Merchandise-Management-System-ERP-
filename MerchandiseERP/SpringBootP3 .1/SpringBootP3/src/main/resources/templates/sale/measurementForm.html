@@ -1,0 +1,49 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+    <p class="pb-0">Best seller of the month cate</p>
+    <a href=/measurement/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/measurement/save}" th:object="${measurement}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+
+
+
+
+            <div class="mb-3">
+                <label for="styleCode" class="form-label">Style Code</label>
+                <select name="styleCode" id="styleCode" class="form-control" th:field="*{style}">
+                    <option  th:each="style:${styleList}" th:text="${style.code}" th:value="${style.id}">Select one</option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+                <label for="codeName" class="form-label">Code</label>
+                <input type="text" class="form-control" id="codeName" th:field="*{codeName}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" th:field="*{name}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="tolerance" class="form-label">Tolerance</label>
+                <input type="text" class="form-control" id="tolerance" th:field="*{tolerance}">
+
+            </div>
+
+
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>

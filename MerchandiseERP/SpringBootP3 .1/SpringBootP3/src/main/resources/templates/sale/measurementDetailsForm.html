@@ -1,0 +1,57 @@
+<div th:insert="header.html"></div>
+<div class="px-3 py-3">
+    <h4 class="card-title mb-1"  th:text="${title}"></h4>
+<!--    <p class="pb-0">Best seller of the month cate</p>-->
+    <a href=/measurement_details/list class="btn btn-sm btn-primary">Manage</a>
+
+    <div class="py-2">
+        <form method="post" th:action="@{/measurement_details/save}" th:object="${measurementDetails}">
+            <input type="hidden" class="form-control" th:field="*{id}">
+
+<!--            style code -->
+            <div class="mb-3">
+                <label for="styleCode" class="form-label">Style Code</label>
+                <select name="styleCode" id="styleCode" class="form-control" th:field="*{styleId}">
+                    <option  th:each="style:${styleList}" th:text="${style.code}" th:value="${style.id}">Select one</option>
+
+                </select>
+
+            </div>
+<!--            style code  end-->
+            <div class="mb-3">
+                <label for="descripton" class="form-label">Description</label>
+                <input type="text" class="form-control" id="descripton" th:field="*{description}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="Tolerance" class="form-label">Tolerance</label>
+                <input type="text" class="form-control" id="Tolerance" th:field="*{tolerance}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="Small" class="form-label">Small</label>
+                <input type="text" class="form-control" id="Small" th:field="*{small}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="Medium" class="form-label">Medium</label>
+                <input type="text" class="form-control" id="Medium" th:field="*{medium}">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="Large" class="form-label">Large</label>
+                <input type="text" class="form-control" id="Large" th:field="*{large}">
+
+            </div>
+
+            <button type="submit" th:if="${id==null}" class="btn btn-primary">Submit</button>
+            <button type="submit" th:if="${id!=null}" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+</div>
+<div th:insert="footer.html"></div>
