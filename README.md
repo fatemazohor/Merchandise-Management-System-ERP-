@@ -46,27 +46,28 @@ STEP 3: Use MySQL workbench to import data from dump folder, sql file.
 
 Project Preview.
 ---------------------------------------------------------------------
-:point_right: Login page for Admin:
+:pushpin: Login page for Admin:
 ![ Login page](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/login.PNG)
 
-:point_right: DashBoard Overview:
+:pushpin: DashBoard Overview:
 ![ DashBoard](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/dash1.PNG)
 ![ DashBoard 2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/dash2.PNG)
 
-:point_right: Style code and Techpack:
+:pushpin: Style code and Techpack:
 ![ Style Page](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/style.PNG)
------- TechPack full view-------
+
+:pushpin: TechPack full view:
 ![ TechPack](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techpack.PNG)
 ![ Tech1](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techPack1.PNG)
 ![ Tech2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techpack2.PNG)
 
-:point_right: Material Images register:
+:pushpin: Material Images register:
 ![ Style Attach](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/styleAtt.PNG)
 ![Measurement Attach](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/styleMAtt.PNG)
 ![ Raw Material](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/styleRAtt.PNG)
 
 
-:point_right: Bill of Material:
+:pushpin: Bill of Material:
 ![ bom1](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom1.PNG)
 ![ bom2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom2.PNG)
 ![ bom3](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom3.PNG)
@@ -75,13 +76,13 @@ Project Preview.
 ![ bom6](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom6.PNG)
 
 
-:point_right: Order Entry:
+:pushpin: Order Entry:
 ![ order](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/order.PNG)
 ![ or1](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/or1.PNG)
 ![ or2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/or2.PNG)
 ![ order2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/order2.PNG)
 
-:point_right: Purchase Product:
+:pushpin: Purchase Product:
 ![ purchase](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/purchase2.PNG)
 
 **"Suggestions and project Improvements are always Invited!"**  
