@@ -7,23 +7,24 @@ For a comprehensive picture of the business process, the order, sales, and reven
 Login page for Admin:
 ![ Login page](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/login.PNG)
 
-DashBoard Overview:
+------DashBoard Overview:
 ![ DashBoard](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/dash1.PNG)
 ![ DashBoard 2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/dash2.PNG)
 
-Style code and Techpack:
+------Style code and Techpack:
 ![ Style Page](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/style.PNG)
+------ TechPack full view-------
 ![ TechPack](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techpack.PNG)
 ![ Tech1](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techPack1.PNG)
 ![ Tech2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techpack2.PNG)
 
-Material Images register:
+-------Material Images register:
 ![ Style Attach](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/styleAtt.PNG)
 ![Measurement Attach](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/styleMAtt.PNG)
 ![ Raw Material](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/styleRAtt.PNG)
 
 
-Bill of Material:
+-------Bill of Material:
 ![ bom1](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom1.PNG)
 ![ bom2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom2.PNG)
 ![ bom3](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom3.PNG)
@@ -32,12 +33,12 @@ Bill of Material:
 ![ bom6](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom6.PNG)
 
 
-Order Entry:
+------Order Entry:
 ![ order](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/order.PNG)
 ![ or1](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/or1.PNG)
 ![ or2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/or2.PNG)
 ![ order2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/order2.PNG)
 
-Purchase Product:
+------Purchase Product:
 ![ purchase](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/purchase2.PNG)
 
