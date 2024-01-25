@@ -4,31 +4,31 @@ Different clothing materials (style codes) and TechPacks are created by the merc
 The company also buys raw materials based on how much it requires for production.
 For a comprehensive picture of the business process, the order, sales, and revenue are displayed on the dashboard together with the order, buy, and stock tables.
 -----------------   ---------------------------------------------
-There are 1 users in the system
+###There are 1 users in the system
 
-Administrator and
+-Administrator and
 
-The Role of Administrator is
-Create new Style, TechPack, BOM.
-View all the Style, TechPack, BOM.
-Create new Vendor.
-View all the vendors.
-Create new Buyers.
-View All the Buyers.
-View All the Orders.
+###The Role of Administrator is
+1.Create new Style, TechPack, BOM.
+2.View all the Style, TechPack, BOM.
+3.Create new Vendor.
+4.View all the vendors.
+5.Create new Buyers.
+6.View All the Buyers.
+7.View All the Orders.
 
-Technologies used:-
-Front-End Development:
-Html
-Css
-Javascript
-BootStrap
-Back-End Development
-Spring Boot
-JDBC
-Servlet
-JSP
-MySQL
+###Technologies used:-
+-Front-End Development:
+-Html
+-Css
+-Javascript
+-BootStrap
+###Back-End Development
+-Spring Boot
+-JDBC
+-Servlet
+-JSP
+-MySQL
 
 ==== Software And Tools Required ======
 : MySQL
