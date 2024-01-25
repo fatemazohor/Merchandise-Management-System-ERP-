@@ -4,6 +4,40 @@ Different clothing materials (style codes) and TechPacks are created by the merc
 The company also buys raw materials based on how much it requires for production.
 For a comprehensive picture of the business process, the order, sales, and revenue are displayed on the dashboard together with the order, buy, and stock tables.
 -----------------   ---------------------------------------------
+There are 1 users in the system
+
+Administrator and
+
+The Role of Administrator is
+Create new Style, TechPack, BOM.
+View all the Style, TechPack, BOM.
+Create new Vendor.
+View all the vendors.
+Create new Buyers.
+View All the Buyers.
+View All the Orders.
+
+Technologies used:-
+Front-End Development:
+Html
+Css
+Javascript
+BootStrap
+Back-End Development
+Spring Boot
+JDBC
+Servlet
+JSP
+MySQL
+
+==== Software And Tools Required ======
+: MySQL
+: IntelliJ IDEA
+: Java JDK 17+
+
+
+
+---------------------------------------------------------------------
 Login page for Admin:
 ![ Login page](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/login.PNG)
 
