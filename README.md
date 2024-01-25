@@ -31,9 +31,10 @@ For a comprehensive picture of the business process, the order, sales, and reven
 - MySQL
 
 ==== Software And Tools Required ======
-:  MySQL
-:  IntelliJ IDEA
-:  Java JDK 17+
+- :  MySQL
+- :  IntelliJ IDEA
+- :  Spring Initializer
+- :  Java JDK 17+
 
 
 
