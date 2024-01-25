@@ -6,7 +6,7 @@ For a comprehensive picture of the business process, the order, sales, and reven
 -----------------   ---------------------------------------------
 ## There are 1 users in the system
 
-- Administrator and
+- Administrator
 
 ## The Role of Administrator is
 1. Create new Style, TechPack, BOM.
@@ -31,9 +31,9 @@ For a comprehensive picture of the business process, the order, sales, and reven
 - MySQL
 
 ==== Software And Tools Required ======
-: MySQL
-: IntelliJ IDEA
-: Java JDK 17+
+:  MySQL
+:  IntelliJ IDEA
+:  Java JDK 17+
 
 
 
