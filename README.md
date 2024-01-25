@@ -3,7 +3,23 @@ Merchandise management system with Spring Boot, Thymeleaf and MySQL.
 ![ Login page](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/login.PNG)
 ![ DashBoard](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/dash1.PNG)
 ![ DashBoard 2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/dash2.PNG)
+
 ![ Style Page](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/style.PNG)
+![ TechPack](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techpack.PNG)
+![ Tech1](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techPack1.PNG)
+![ Tech2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techpack2.PNG)
 ![ Style Attach](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/styleAtt.PNG)
 ![Measurement Attach](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/styleMAtt.PNG)
 ![ Raw Material](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/styleRAtt.PNG)
+
+![ bom1](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom1.PNG)
+![ bom2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom2.PNG)
+![ bom3](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom3.PNG)
+![ bom4](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom4.PNG)
+![ bom5](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom5.PNG)
+![ bom6](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom6.PNG)
+
+![ order](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/order.PNG)
+![ order2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/order2.PNG)
+![ purchase](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/purchase2.PNG)
+
