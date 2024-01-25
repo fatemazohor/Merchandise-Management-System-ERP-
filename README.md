@@ -20,6 +20,8 @@ Merchandise management system with Spring Boot, Thymeleaf and MySQL.
 ![ bom6](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/bom6.PNG)
 
 ![ order](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/order.PNG)
+![ or1](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/or1.PNG)
+![ or2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/or2.PNG)
 ![ order2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/order2.PNG)
 ![ purchase](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/purchase2.PNG)
 
