@@ -58,6 +58,7 @@ Project Preview.
 
 :pushpin: TechPack full view:
 ![ TechPack](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techpack.PNG)
+
 ![ Tech1](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techPack1.PNG)
 ![ Tech2](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/techpack2.PNG)
 
