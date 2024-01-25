@@ -37,12 +37,14 @@ For a comprehensive picture of the business process, the order, sales, and reven
 - :  Java JDK 17+
 
 
-================= Dummy Database Initialization USING QUERY =================
+================= Dummy Database Initialization USING QUERY =================  
 STEP 1: Open MySQL Command Prompt or MySQL Workbench
 
 STEP 2: Login to the administrator user as : mysql -u <username> -p (Enter Password if asked)
 
 STEP 3: Use MySQL workbench to import data from dump folder, sql file.
+
+Project Preview.
 ---------------------------------------------------------------------
 Login page for Admin:
 ![ Login page](https://github.com/fatemazohor/Merchandise-Management-System-ERP-/blob/main/ScreenShot/login.PNG)
