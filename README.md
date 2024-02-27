@@ -18,12 +18,12 @@ For a comprehensive picture of the business process, the order, sales, and reven
 7. View All the Orders.
 
 ## Technologies used:-
-- Front-End Development:
+### Front-End Development:
 - Html
 - Css
 - Javascript
 - BootStrap
-## Back-End Development
+### Back-End Development
 - Spring Boot
 - JDBC
 - Servlet
