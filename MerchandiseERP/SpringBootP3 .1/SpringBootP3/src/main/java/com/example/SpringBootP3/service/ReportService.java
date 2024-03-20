@@ -22,16 +22,19 @@ public class ReportService {
     private IBuyerRepo buyerRepo;
 
 public String exportReport(String reportFormat) throws FileNotFoundException, JRException {
-    String path="F:\\New folder\\BOOK\\New folder\\github\\Merchandise-Management-System-ERP-\\reports";
+//    String path="F:\\New folder\\BOOK\\New folder\\github\\Merchandise-Management-System-ERP-\\reports";
+    String path="E:\\1277609\\github\\Merchandise-Management-System-ERP-\\reports";
+//    String path="classpath:\\SpringBootP3..\\SpringBootP3 .1..\\MerchandiseERP\\reports";
     // data list
     List<Buyers> buyers = buyerRepo.findAll();
     //load file
-    File file = ResourceUtils.getFile("F:\\New folder\\BOOK\\New folder\\github\\Merchandise-Management-System-ERP-\\MerchandiseERP\\SpringBootP3 .1\\SpringBootP3\\src\\main\\resources\\reports\\buyers.jrxml");
+//    File file = ResourceUtils.getFile("F:\\New folder\\BOOK\\New folder\\github\\Merchandise-Management-System-ERP-\\MerchandiseERP\\SpringBootP3 .1\\SpringBootP3\\src\\main\\resources\\reports\\buyers.jrxml");
+    File file = ResourceUtils.getFile("classpath:\\reports\\buyersAll.jrxml");
     //compile file for jasper
     JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
     JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(buyers);
     Map<String,Object> para = new HashMap<>();
-    para.put("cratedBy","Fatema Tuz Zohora");
+    para.put("createdBy","Fatema Tuz Zohora");
     JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,para,dataSource);
     if(reportFormat.equalsIgnoreCase("html")){
         JasperExportManager.exportReportToHtmlFile(jasperPrint,path+"\\buyersList.html");
@@ -39,6 +42,7 @@ public String exportReport(String reportFormat) throws FileNotFoundException, JR
     if(reportFormat.equalsIgnoreCase("pdf")){
         JasperExportManager.exportReportToPdfFile(jasperPrint,path+"\\buyersList.pdf");
     }
+    System.out.println("classpath "+ file.getAbsolutePath());
     return "report generated in path:"+path;
 
 
